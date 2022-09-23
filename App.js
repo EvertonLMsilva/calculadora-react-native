@@ -15,28 +15,36 @@ import Display from './src/components/Display';
 const App: () => Node = () => {
   const [state, setState] = useState({ displayValue: '0' });
 
+  const addDigit = numero => {
+    setState({ displayValue: numero });
+  };
+  const clearMemory = () => {
+    setState({ displayValue: '0' });
+  };
+  const setOperation = caracter => {};
+
   return (
     <SafeAreaView style={styles.sectionContainer}>
-        <Display value={state.displayValue} />
-        <View style={styles.button}>
-          <Button label="AC" />
-          <Button label="/" />
-          <Button label="7" />
-          <Button label="8" />
-          <Button label="9" />
-          <Button label="*" />
-          <Button label="4" />
-          <Button label="5" />
-          <Button label="6" />
-          <Button label="-" />
-          <Button label="1" />
-          <Button label="2" />
-          <Button label="3" />
-          <Button label="+" />
-          <Button label="0" />
-          <Button label="." />
-          <Button label="=" />
-        </View>
+      <Display value={state.displayValue} />
+      <View style={styles.button}>
+        <Button label="AC" triple onClick={clearMemory} />
+        <Button label="/" operation onClick={setOperation} />
+        <Button label="7" onClick={addDigit} />
+        <Button label="8" onClick={addDigit} />
+        <Button label="9" onClick={addDigit} />
+        <Button label="*" operation onClick={setOperation} />
+        <Button label="4" onClick={addDigit} />
+        <Button label="5" onClick={addDigit} />
+        <Button label="6" onClick={addDigit} />
+        <Button label="-" operation onClick={setOperation} />
+        <Button label="1" onClick={addDigit} />
+        <Button label="2" onClick={addDigit} />
+        <Button label="3" onClick={addDigit} />
+        <Button label="+" operation onClick={setOperation} />
+        <Button label="0" double onClick={addDigit} />
+        <Button label="." onClick={addDigit} />
+        <Button label="=" operation onClick={setOperation} />
+      </View>
     </SafeAreaView>
   );
 };
