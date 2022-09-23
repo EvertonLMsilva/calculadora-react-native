@@ -1,6 +1,5 @@
 import React from 'react';
 import { Dimensions, Text, StyleSheet, View, TouchableHighlight } from 'react-native';
-import { proseWrap } from '../../.prettierrc';
 
 const style = StyleSheet.create({
   button: {
